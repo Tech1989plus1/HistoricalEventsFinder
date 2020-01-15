@@ -1,0 +1,20 @@
+{
+  "name": "HistoricalEventsFinder",
+  "version": "1.0.0",
+  "description": "Single-page app that enables users to search and browse historical event information based on data found in the JSON file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tech1989plus1/HistoricalEventsFinder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tech1989plus1/HistoricalEventsFinder/issues"
+  },
+  "homepage": "https://github.com/Tech1989plus1/HistoricalEventsFinder#readme"
+}
