@@ -4,7 +4,8 @@
   "description": "Single-page app that enables users to search and browse historical event information based on data found in the JSON file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "react-dev": "webpack --watch -d",
+    "start": "json-server ./data/db.json"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,19 @@
   "bugs": {
     "url": "https://github.com/Tech1989plus1/HistoricalEventsFinder/issues"
   },
-  "homepage": "https://github.com/Tech1989plus1/HistoricalEventsFinder#readme"
+  "homepage": "https://github.com/Tech1989plus1/HistoricalEventsFinder#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "wepack-cli": "0.0.1-security"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-paginate": "^6.3.2"
+  }
 }
