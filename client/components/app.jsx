@@ -2,13 +2,7 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { ajax } from 'jquery';
 import Nav from './Nav.jsx';
-
-const Record = ({ data }) => {
-  return(
-    <div className="">
-    </div>
-  )
-}
+import Group from './Group.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -52,7 +46,7 @@ class App extends React.Component {
     return(
       <div className="">
         <Nav finderCB={this.finder}/>
-        <Record data={this.state.data}/>
+        <Group data={this.state.data}/>
         <ReactPaginate
           previousLabel={'previous'}
           nextLabel={'next'}
