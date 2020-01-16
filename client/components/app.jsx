@@ -2,10 +2,11 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { ajax } from 'jquery';
 
-const Record = ({}) => {
+const Record = ({ data }) => {
   return(
     <div>
-      <h1>Recirds</h1>
+      {console.log(data)}
+      <h1>Hello</h1>
     </div>
   )
 }
@@ -16,42 +17,38 @@ class App extends React.Component {
     this.state ={
       data: [],
       pageData: [],
-      offSet: 0,
       perPage: 10
     }
 
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  getRecords() {
+  getRecords(start, end) {
     ajax({
       method: 'GET',
-      url: '/events',
+      url: `/events?_start=${start}&_end=${end}`,
       error: (err) => console.error(err),
       success: (data) => {
-        this.setState({
-          pageCount: data.length,
-          data: data
-        })
+       console.log(data)
       }
     });
   }
 
   handlePageClick({ selected }) {
-    const offset = Math.ceil(selected * this.state.perPage);
-
-    //this.setState({ offSet: offset});
-    console.log(selected, offset) 
+    const start = Math.ceil(selected * this.state.perPage);
+    const end = start + this.state.perPage;
+    
+    this.getRecords(start, end);
   }
 
   componentDidMount() {
-    this.getRecords();
+    this.getRecords(0, 10);
   }
 
   render() {
     return(
       <div className="">
-        <Record/>
+        <Record data={this.state.pageData}/>
         <ReactPaginate
           previousLabel={'previous'}
           nextLabel={'next'}
