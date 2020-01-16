@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactPaginate from 'react-paginate';
 import { ajax } from 'jquery';
 import Nav from './Nav.jsx';
 import Group from './Group.jsx';
+import Page from './Page.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,22 +47,7 @@ class App extends React.Component {
       <div className="">
         <Nav finderCB={this.finder}/>
         <Group data={this.state.data}/>
-        <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          onPageChange={this.handlePageClick}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={4}
-          pageCount={this.state.pageCount}
-          containerClassName={'pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
-        />
+        <Page pageClick={this.handlePageClick} pageCount={this.state.pageCount}/>
       </div>
     );
   }
