@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { ajax } from 'jquery';
+import Nav from './Nav.jsx';
 
 const Record = ({ data }) => {
   return(
-    <div>
-      {console.log(data)}
-      <h1>Hello</h1>
+    <div className="">
     </div>
   )
 }
@@ -16,11 +15,11 @@ class App extends React.Component {
     super(props);
     this.state ={
       data: [],
-      pageData: [],
       perPage: 10
     }
 
     this.handlePageClick = this.handlePageClick.bind(this);
+    this.finder = this.finder.bind(this);
   }
 
   getRecords(start, end) {
@@ -29,9 +28,13 @@ class App extends React.Component {
       url: `/events?_start=${start}&_end=${end}`,
       error: (err) => console.error(err),
       success: (data) => {
-       console.log(data)
+       this.setState({data: data});
       }
     });
+  }
+
+  finder(event){
+    console.log(event)
   }
 
   handlePageClick({ selected }) {
@@ -48,7 +51,8 @@ class App extends React.Component {
   render() {
     return(
       <div className="">
-        <Record data={this.state.pageData}/>
+        <Nav finderCB={this.finder}/>
+        <Record data={this.state.data}/>
         <ReactPaginate
           previousLabel={'previous'}
           nextLabel={'next'}
